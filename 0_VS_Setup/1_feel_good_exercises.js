@@ -53,7 +53,7 @@
 // Fix the two errors below with a red-line underneath.
 
 // a. Hint: follow the pattern.
-a = 1
+whatever = 1
 b = 2
 c = 3
 
