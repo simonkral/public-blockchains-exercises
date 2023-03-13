@@ -62,6 +62,7 @@ function sayHello() {
     console.log('Hello!');
 }
 
+sayHello();
 
 // EXERCISE 2. Producticity: Shorcuts and More.
 ///////////////////////////////////////////////
@@ -88,16 +89,16 @@ uselessCode = 'I am useless';
 // a new cursor, so you can write multiple rows at once. Delete the word "not"
 // and replace the explanation mark with a sad face.
 
-catchMeIfYouCan1 = 'You did not catch me!';
-catchMeIfYouCan2 = 'You did not catch me!';
-catchMeIfYouCan3 = 'You did not catch me!';
+catchMeIfYouCan1 = 'You did :) catch me!';
+catchMeIfYouCan2 = 'You did :) catch me!';
+catchMeIfYouCan3 = 'You did :) catch me!';
 
 // d. Sometimes you want to move an entire line of code up or down. Of course
 // there is a shortcut for that: Alt-ArrowUp/Down. 
 
 // Order the lines below accordingly.
-console.log('2. I would like to go below.');
 console.log('1. I would like to go above.');
+console.log('2. I would like to go below.');
 
 // Great! To learn more about key bindings, see:
 // - https://code.visualstudio.com/docs/getstarted/keybindings
@@ -123,7 +124,7 @@ let a = 1234;
 a++;
 if (a > 123) {
     a--;
-}
+} 
 else a++
 console.log(a);
 
