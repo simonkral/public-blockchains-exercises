@@ -150,10 +150,10 @@ function dollB() {
 
 dollA();
 console.log(commonVariable);
-console.log(privateVariableDollA); // Will throw an error.
+// console.log(privateVariableDollA); // Will throw an error.
 dollB();
 console.log(commonVariable);
-console.log(privateVariableDollB); // Will throw an error.
+// console.log(privateVariableDollB); // Will throw an error.
 
 // Modify the functions dollA and dollB so that no errors are thrown.
 
@@ -161,7 +161,7 @@ function dollA() {
     // Without "let" privateVariableDollA is added into the global space.
     privateVariableDollA = 10;
     commonVariable += privateVariableDollA;
-    console.log(privateVariableDollB); // Will throw an error.
+    // console.log(privateVariableDollB); // Will throw an error.
 }
 
 function dollB() {

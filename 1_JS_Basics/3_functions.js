@@ -11,6 +11,9 @@
 // Create a function named printMyName that prints out your name.
 // Verify its type and invoke it.
 
+function printMyName() {
+    console.log('Simon');
+}
 
 // Notice that camel case naming applies also to functions.
 // Further notice  that functions definitions are not terminated by a semicolon.
@@ -25,6 +28,10 @@ printMyName();
 // printSentence('Brendan');
 // 'Brendan is great!'.
 
+function printMyName(name) {
+    console.log(name+' is great!');
+}
+printMyName("Simon");
 
 // b. Modify the printSentence function so that it takes an object of the
 // type you createed in the "Objects and loops" exercise and compose a
@@ -36,8 +43,9 @@ printMyName();
 // the brendan object from Exercise Sheed 2 here.
 
 function printSentence(person) {
-    // Add code here
+    console.log(`${person.first} ${person.last} is born in ${person.year} and he is great!`);
 }
+
 personObject = { first: 'Brendan', last: 'Eich', year: 1961 };
 printSentence(personObject);
 
@@ -47,7 +55,8 @@ printSentence(personObject);
 // Hint: use the ternary operator ? for a more compact function.
 
 function printSentence2(person1, person2) {
-    // Add code here.
+    let p = person1.year > person2.year ? person1 : person2;
+    console.log(`${p.first} ${p.last} is born in ${p.year} and he is great!`);
 }
 brendan = { first: 'Brendan', last: 'Eich', year: 1961 };
 linus = { first: 'Linus', last: 'Torvalds', year: 1969 };
@@ -65,6 +74,15 @@ printSentence2(brendan, linus);
 // the second one prints it.
 // Hint: combine the return statement and the ternary operator for a one-liner.
 
+function whoIsYounger(person1, person2) {
+    return(person1.year > person2.year ? person1 : person2);
+}
+
+function printSentence(person) {
+    console.log(`${person.first} ${person.last} is born in ${person.year} and he is great!`);
+}
+
+printSentence(whoIsYounger(brendan, linus));
 
 // EXERCISE 3 Scope.
 ////////////////////
@@ -89,6 +107,10 @@ printSentence2(brendan, linus);
 // that it accesses directly the brendan and linus objects created before
 // without using input parameters.
 
+function printSentence3() {
+    let p = brenadan.year > linus.year ? brendan : linus;
+    console.log(`${p.first} ${p.last} is born in ${p.year} and he is great!`);
+}
 
 // Certainly, this function is less general than the function with input
 // parameters, so the one with input parameters is the preferred
@@ -100,6 +122,12 @@ printSentence2(brendan, linus);
 // result in a global variable youngest.
 // Hint: whether you use let youngest = ... or simply youngest = ...
 // inside the function makes a big difference. Do you understand why?
+
+function whoIsYounger2(person1, person2) {
+    youngest = person1.year > person2.year ? person1 : person2;
+}
+
+whoIsYounger2(brendan, linus)
 
 console.log(youngest);
 
