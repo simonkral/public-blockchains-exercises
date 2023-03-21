@@ -17,6 +17,7 @@
 let printNews = (allNews) => {
   allNews.forEach(news => console.log(`- Breaking News: ${news.title}`));
 };
+// printNews: function which prints the the title of all news objects in a given list
 
 let getLatestNews = (cb) => {
   // Imagine to connect to a server and getting back the news. 
@@ -32,10 +33,8 @@ let getLatestNews = (cb) => {
       }
     ];
     console.log('News fetched, now I can print them.');
-
     if (cb) cb(news);
-
   }, 2000);
 };
 
-getLatestNews();
+getLatestNews(printNews);

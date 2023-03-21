@@ -16,6 +16,18 @@
 // any input number. For instance, if input is 10, the result is 55.
 // Motivational Hint: This exercise is often asked at job interviews.
 
+function fibonacci(n){
+    f_n = 0;
+    f_nn = 1;
+    for (let i = 0; i < n-1; i++) {
+        temp = f_nn;
+        f_nn = f_n + f_nn;
+        f_n = temp;
+    }
+    return f_nn
+}
+
+console.log(fibonacci(10));
 
 // EXERCISE 2. Bonus. Recursive Fibonacci.
 //////////////////////////////////////////
@@ -46,7 +58,6 @@ console.log(resultOfRecursion);
 
 // Now write the fibonacci recursive function.
 // Hint: it takes just 2 lines (but you could make it one).
-
 
 
 // FUN EXERCISE!

@@ -102,6 +102,7 @@ printSentence(younger);
 // parameters for the printSentence function above. Rewrite the function so
 // that it accesses directly the brendan and linus objects without
 // input parameters.
+
 function printSentence() {
     let person = brendan.year < linus.year ? linus : brendan;
     console.log(person.first + ' ' + person.last +

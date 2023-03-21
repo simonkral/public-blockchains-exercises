@@ -55,3 +55,7 @@ let interval = setInterval(() => {
 // b. Bill, shocked by your compulsive reaction, finally says "Hello..." after
 // 10 seconds. You can then clear the interval.
 
+let final = setTimeout(() => {
+    console.log('Hello Bill!');
+    clearTimeout(interval);
+}, 10000);

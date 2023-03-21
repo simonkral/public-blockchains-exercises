@@ -58,6 +58,7 @@ function printSentence2(person1, person2) {
     let p = person1.year > person2.year ? person1 : person2;
     console.log(`${p.first} ${p.last} is born in ${p.year} and he is great!`);
 }
+
 brendan = { first: 'Brendan', last: 'Eich', year: 1961 };
 linus = { first: 'Linus', last: 'Torvalds', year: 1969 };
 printSentence2(brendan, linus);
@@ -155,13 +156,33 @@ function dollB() {
 
 dollA();
 console.log(commonVariable);
+// console.log(privateVariableDollA); // Will throw an error.
+dollB();
+console.log(commonVariable);
+// console.log(privateVariableDollB); // Will throw an error.
+
+// Modify the functions dollA and dollB so that no errors are thrown.
+
+function dollA() {
+    privateVariableDollA = 10;
+    commonVariable += privateVariableDollA;
+    // dollA function has no access to the variable defined inside dollB.
+    // console.log(privateVariableDollB); // Will throw an error.
+}
+
+function dollB() {
+    privateVariableDollB = -10;
+    commonVariable += privateVariableDollB;
+    // dollB function has no access to the variable defined inside dollA.
+    console.log(privateVariableDollA); // Will throw an error.
+}
+
+dollA();
+console.log(commonVariable);
 console.log(privateVariableDollA); // Will throw an error.
 dollB();
 console.log(commonVariable);
 console.log(privateVariableDollB); // Will throw an error.
-
-// Modify the functions dollA and dollB so that no errors are thrown.
-
 
 // It works now, but it is bad coding practice to "leak" variables defined
 // inside a function into the global space. You should try to avoid it, and
@@ -184,7 +205,7 @@ function isNotGreat() {
     return ' who?';
 }
 function judgePerson(person, cb) {
-    // Your code here.
+    console.log(person.first + cb());
 }
 
 judgePerson(brendan, isGreat);
@@ -199,7 +220,7 @@ judgePerson(brendan, isNotGreat);
 // An example of anonymous function is a sorting functions for elements of
 // an array. A sorting (or comparator) function takes as input two elements
 // of the array and returns 1, if the first element preceeds the second,
-// of -1 if vice versa. The function iterates through all possible pairs
+// or -1 if vice versa. The function iterates through all possible pairs
 // of elements in the array to create the ranking.
 
 // Create a function that sorts the elements of the persons array from
@@ -209,8 +230,13 @@ persons = [ brendan, linus ];
 persons.sort(
     // Define a comparator function in here.
 );
-console.log(persons);
 
+persons.sort(function(a, b) {
+    if (a.year < b.year) return 1;
+    return -1;
+});
+
+console.log(persons);
 
 // Great work! You finish the third exercise sheet!
 // Stop patting yourself on the back, finish all the exercises of Part 1 first!

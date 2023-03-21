@@ -22,6 +22,7 @@ function divideNumbers(a, b) {
 // (e.g., JAVA) would catch these errors automatically, but in scripted
 // languages you need to be careful.
 divideNumbers('what', {});
+console.log(divideNumbers('what', {}));
 // NaN means Not a Number.
 
 // JavaScript makes it particularly difficult to catch these errors,
@@ -34,13 +35,26 @@ console.log(typeof NaN);
 // a special return value with a warning on console.log.
 
 function divideNumbers(a, b) {
-    // Your code here.
+    if (typeof a == "number" && typeof b == "number"){
+        if (b != 0){
+            return a / b;
+        }
+        else{
+            return false;
+            console.log("Division by 0");
+        }
+    }
+    else {
+        return false;
+        console.log("Incorrect parameter types");
+    }
 }
 
-divideNumbers('what', {});
-divideNumbers(1, 2);
+console.log(divideNumbers('what', {}));
 
-divideNumbers(1, 0);
+console.log(divideNumbers(1, 2));
+
+console.log(divideNumbers(1, 0));
 
 // EXERCISE 2. Catch errors.
 ////////////////////////////
@@ -64,13 +78,20 @@ judgePerson(brendan);
 // we catch it with a try and catch statement and print an error message.
 
 function judgePerson(person, cb) {
-    // Your code here.
+    let str;
+    try {
+        str = person.first + ' ' + person.last + cb()
+    }
+    catch(error) {
+        console.log('An error occurred. Are you sure you passed a function?');
+        return;
+    }
+    console.log(str);
 }
 
 brendan = { first: 'Brendan', last: 'Eich', year: 1961 };
 judgePerson(brendan);
 judgePerson(brendan, function() { return ' impacted my life.'; });
-
 
 // Great work! You finish the fourth exercise sheet!
 // You are ready for final exercise of Part 1 first!
